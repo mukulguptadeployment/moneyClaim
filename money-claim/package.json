@@ -1,0 +1,24 @@
+{
+  "name": "money-claim",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "check": "npm-check -u"
+  },
+  "dependencies": {
+    "antd": "^5.1.1",
+    "cookie": "^0.5.0",
+    "eslint": "8.29.0",
+    "eslint-config-next": "13.0.6",
+    "js-cookie": "^3.0.1",
+    "mongoose": "^6.8.2",
+    "next": "13.0.6",
+    "nodemailer": "^6.9.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

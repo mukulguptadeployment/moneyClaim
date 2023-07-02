@@ -1,0 +1,30 @@
+{
+  "profile": {
+    "english": "My Profile",
+    "hindi": "मेरी प्रोफाइल"
+  },
+  "startplaying": {
+    "english": "Start Playing",
+    "hindi": "खेलना शुरू करें"
+  },
+  "upcoming": {
+    "english": "Refer and Earn",
+    "hindi": "दूसरे को भेज कर पैसे कमाना"
+  },
+  "complain": {
+    "english": "Raise a Complaint",
+    "hindi": "शिकायत करे"
+  },
+  "notice": {
+    "english": "All Entries For Today’s Contest Will start at 10:00am and will be Closed After 11:30AM !",
+    "hindi": "आज की प्रतियोगिता के लिए सभी प्रविष्टियाँ सुबह 10:00 बजे शुरू होंगी और 11:30 बजे के बाद बंद हो जाएँगी!"
+  },
+  "LuckyNum":{
+    "english": "'s Lucky Number",
+    "hindi": " का लकी नंबर"
+  },
+  "activeuser": {
+    "hindi": "91857 लोग अब तक जुड़े",
+    "english": "91857 Active Users"
+  }
+}

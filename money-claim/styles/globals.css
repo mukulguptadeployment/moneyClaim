@@ -1,0 +1,506 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+@import "antd/dist/reset.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Itim", cursive;
+  background: linear-gradient(#ffffff, #de0000, #00ff00);
+  line-height: unset;
+  padding-bottom: 30px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  max-width: 100%;
+  overflow-x: hidden;
+  z-index: 1;
+  background: transparent;
+}
+.LuckyNumber {
+  background: url("/LuckyNumber.jpg");
+  border: 1px solid #9e9e9e93;
+  padding: 15px;
+  box-shadow: 0px 0px 10px #9e9e9e;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+  background-position: center;
+  min-width: 205px;
+}
+.TitleLuckyNumber {
+  font: normal normal bold 20px/25px "Itim";
+}
+.LotteryNum {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  font-size: 50px;
+  color: #de0000;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logoutBtn {
+  border: none;
+  background: transparent;
+}
+.MoneyRain {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: -1;
+}
+.ant-col {
+  max-width: 100%;
+}
+.root {
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+.Header {
+  display: flex;
+  max-width: 100%;
+  max-height: 110px;
+  justify-content: space-between;
+}
+.HeaderText {
+  padding: 0px 3px;
+  display: flex;
+  color: #ff0000;
+  align-items: center;
+  font: normal normal 700 40px/45px "Itim";
+  width: 70%;
+  justify-content: space-around;
+}
+.FormContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.LoginForm {
+  font: normal normal 28px "Itim";
+  padding-top: 15px;
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+.LoginBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px;
+}
+.LoginBtnContainer span {
+  margin-right: 10px;
+}
+.LanguageButton {
+  width: 130px;
+  line-height: 20px;
+  font-size: 14px;
+  height: 45px;
+  background: transparent;
+  border: 0.2px solid #c7c7c7a2;
+  box-shadow: 0px 10px 8px -8px #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.LoginFieldForm {
+  max-width: 98%;
+  padding: 0px 5px;
+}
+.LoginFieldFormItem {
+  width: 100%;
+  margin-bottom: 10px;
+  height: max-content;
+}
+.LoginFieldFormItem input {
+  height: 40px;
+}
+.LoginFieldFormItem .ant-btn {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  background: #de0000;
+  border-radius: 8px;
+  font: normal normal 500 30px "Itim";
+}
+.LoginFieldFormItem .ant-btn:active {
+  transform: scale(0.95);
+}
+.divider {
+  margin: 20px 0px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+.CreateAccount {
+  font: normal normal 18px/18px "Itim";
+  margin: 20px 0px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.CreateAccount:hover {
+  text-decoration: underline;
+}
+.ActiveUsers {
+  font: normal normal 700 22px/22px "Itim";
+  width: 100%;
+  max-width: 100vw;
+  height: 40px;
+  max-height: 50px;
+  margin-top: 25px;
+  padding: 8px 0px;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.LoginFieldForm .ant-form-item-label {
+  text-align: left;
+}
+.LoginFieldForm .ant-form-item-label label {
+  text-align: left;
+  font: normal normal 16px/16px "Itim";
+  flex-direction: row-reverse;
+}
+.ProfileHeader {
+  padding: 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.ProfileHeader2 {
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #c7c7c7a2;
+}
+.ProfileHeader2 button {
+  height: 38px;
+  width: 100px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: rgba(148, 148, 148, 0.88);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 6px #fff;
+  color: #dddddd;
+}
+.ProfileHeader2 span {
+  height: 100%;
+  font: normal normal 900 28px "Itim";
+}
+.btnContainer {
+  margin: 10px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: max-content;
+  padding-bottom: 12px;
+}
+.Clickbtn {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.2px solid #eeeeee;
+  text-align: center;
+  width: 90%;
+  height: 52px;
+  font: normal normal 700 18px/20px "Itim";
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px rgb(110, 109, 109);
+  cursor: pointer;
+}
+.Clickbtn:active {
+  transform: scale(0.95);
+}
+.CollapseRoot {
+  margin-top: 25px;
+  width: 95%;
+  background-color: #fff;
+  padding: 0%;
+}
+.CollapseRoot .ant-collapse-item {
+  margin-bottom: 30px;
+  background-color: #eeeeee;
+  box-shadow: 0px 4px 4px rgb(110, 109, 109);
+  border-radius: 10px !important;
+}
+.CollapseRootparent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+}
+.collapseCustomText {
+  font: normal normal normal 18px/20px "Itim";
+  width: 98%;
+  margin: 0px 1px;
+  margin-bottom: 0px;
+}
+.ForgetPasswordRoot {
+  letter-spacing: 1px;
+  position: relative;
+  bottom: 8px;
+  cursor: pointer;
+  text-align: right;
+  width: 100%;
+  text-decoration: underline;
+  color: blue;
+  display: block;
+}
+.color-match {
+  font-weight: 500;
+  padding: 0px 30px;
+  justify-content: flex-start;
+  background-color: #eeeeee;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.InfoContest {
+  font: normal normal 500 22px/22px "Itim";
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  padding: 4px 0px;
+  height: 90px;
+}
+.TitleGame {
+  font: normal normal 500 22px/22px "Itim";
+  padding: 10px 9px;
+  display: block;
+}
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(10,30px);
+  column-gap: 5px;
+  row-gap: 15px;
+  justify-content: center;
+}
+.NumberButtons {
+  width: 100%;
+  padding: 5px 0px;
+  text-align: center;
+  background: #f1f1f1;
+  box-shadow: 0px 5px 5px #b8b8b8;
+  cursor: pointer;
+}
+.NumberButtons:active {
+  transform: scale(0.94);
+}
+.Terms_Conditions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+  height: 156px;
+}
+.TnCtext {
+  font: normal normal 500 16px/16px "Itim";
+  width: 90%;
+  height: max-content;
+  padding: 3px 0px;
+}
+.PlaceBetBtn {
+  width: 90%;
+  height: 40px;
+  margin: 0px 5%;
+  background-color: #de0000;
+  color: #fff;
+  font: normal normal 600 28px/40px "Itim";
+  border: none;
+  border-radius: 5px;
+  margin-top: 40px;
+  box-shadow: 0px 18px 10px rgba(148, 148, 148, 0.288);
+}
+.PlaceBetBtn:active {
+  transform: scale(0.95);
+}
+.active {
+  background-color: #00ff00;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.ShareRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  min-height: 400px;
+  padding: 30px 0px;
+}
+.infoShare {
+  min-height: max-content;
+  max-width: 90%;
+  text-align: center;
+  font: normal normal 500 18px/18px "Itim";
+}
+.iconsReffer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.MoneyTable {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 45px;
+  color: #ffffff;
+}
+.MoneyTable > span {
+  height: 100%;
+  font: normal normal 400 18px/45px "Itim";
+  text-align: left;
+}
+.MoneyTable:nth-of-type(2) {
+  margin-top: 0px;
+}
+.MoneyTable:nth-of-type(1) {
+  margin: 0px 10px;
+}
+.MoneyTable:nth-of-type(1) > span {
+  height: 100%;
+  font: normal normal 600 20px/45px "Itim";
+  text-align: left;
+}
+.AmountInput {
+  background: #fff;
+  outline: none;
+  border: none;
+  margin: 0;
+  box-shadow: 0px 5px 5px #5a5a5a;
+  border-radius: 8px;
+  padding: 0px 5px;
+  height: 30px;
+  color: #000;
+}
+.ListUsersParent {
+  overflow-x: scroll;
+  padding: 15px 0px;
+}
+.ListUsers {
+  display: grid;
+  grid-template-columns: 100px 150px 150px 100px;
+  column-gap: 10px;
+  overflow-x: scroll;
+  row-gap: 10px;
+}
+.ListUserHead {
+  font: normal normal 700 16px "Itim";
+}
+#basic .ant-form-item-explain-error {
+  line-height: 36px;
+}
+.error {
+  position: relative;
+  bottom: 10px;
+  display: block;
+  color: #ff0000;
+  font-size: 14px;
+}
+.sucess {
+  position: relative;
+  bottom: 10px;
+  display: block;
+  color: #008500;
+  font-size: 14px;
+}
+.MsgModalUser > li {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 150px;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+.MsgModalUser > li:last-of-type {
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+.MsgModalUser > li:last-of-type a {
+  text-align: center;
+  font: normal normal 500 20px "Itim";
+  color: #de0000;
+}
+.ant-modal-title {
+  text-transform: capitalize;
+}
+.ModalTriggerInfoText {
+  cursor: pointer;
+}
+.MsgModalUser > li > span:first-of-type {
+  font: normal normal 500 16px "Itim";
+}
+.RefferedTableRoot {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#paymentId{
+  border-radius: 10px;
+  border: 1px solid #5a5a5a;
+  padding: 10px 5px;
+  outline: none;
+  font-size: 15px;
+}
+.paymentModal .ant-modal-body{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.PayNumber{
+  font-weight: bolder;
+  font-size: 20px;
+}
+.betAmount{
+  font-size: 20px;
+  font-weight: bolder;
+}
+.ButtonInfo{
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px #000000;
+  cursor: pointer;
+  font-size: 20px;
+}
+.RefferedTableRoot1{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin: 0px 10px;
+}

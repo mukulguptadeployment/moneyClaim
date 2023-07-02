@@ -1,0 +1,15 @@
+{
+    "payment":{
+        "english":"Plase do Payment via Google Pay, PhonePay or Paytm Number Below",
+        "hindi":"कृपया नीचे Google पे, फोनपे या पेटीएम नंबर के माध्यम से भुगतान करें"
+    },
+    "placebet":{
+        "english":"Pay and Place Bet",
+        "hindi":"पैसे दे के गेम पक्का करे"
+    },
+    "extraInfo":{
+        "english":"Please Provide Transaction Id below After Making Payment for verification.",
+        "hindi":"गेम में लगाये हुए नंबर की भुगतान करने के बाद कृपया नीचे लेनदेन आईडी प्रदान करें।"
+    }
+
+}

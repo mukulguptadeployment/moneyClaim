@@ -1,0 +1,34 @@
+{
+  "title1": {
+    "english": "List Users",
+    "hindi": ""
+  },
+  "title2": {
+    "english": "Set Number",
+    "hindi": ""
+  },
+  "title3": {
+    "english": "Show Number",
+    "hindi": ""
+  },
+  "title4": {
+    "english": "Set Paytm Number",
+    "hindi": ""
+  },
+  "title5": {
+    "english": "Show bets",
+    "hindi": ""
+  },
+  "title6": {
+    "english": "Bets on Number",
+    "hindi": ""
+  },
+  "title7": {
+    "english": "Show Complaints",
+    "hindi": ""
+  },
+  "activeuser": {
+    "hindi": "91857 लोग अब तक जुड़े",
+    "english": "91857 Active Users"
+  }
+}

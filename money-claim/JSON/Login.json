@@ -1,0 +1,24 @@
+{
+  "Logintitle": {
+    "hindi": "लॉग इन करें",
+    "english": "Login Form"
+  },
+  "activeuser": {
+    "hindi": "91857 लोग अब तक जुड़े",
+    "english": "91857 Active Users"
+  },
+  "loginForm": {
+    "email": {
+      "hindi": "ईमेल आईडी",
+      "english": "Email Id / Username"
+    },
+    "password": {
+      "hindi": "पासवर्ड",
+      "english": "Password"
+    }
+  },
+  "createAccount": {
+    "hindi": "हमारे साथ अकाउंट बनाएं",
+    "english": "Create Account With us"
+  }
+}

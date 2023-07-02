@@ -1,0 +1,22 @@
+{
+    "winning": {
+        "english": "My Winning",
+        "hindi": "जीत के रिकॉर्ड"
+      },
+      "withdrawl":{
+        "english":"Withdrawl Status",
+        "hindi":"निकासी स्टेटस"
+      },
+      "password":{
+        "english":"Change Password ",
+        "hindi":"पासवर्ड बदलें"
+      },
+      "phone":{
+        "english":"Change Phone Number",
+        "hindi":"फ़ोन नंबर बदले"
+      },
+      "activeuser": {
+        "hindi": "91857 लोग अब तक जुड़े",
+        "english": "91857 Active Users"
+      }
+}
