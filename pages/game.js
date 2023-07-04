@@ -68,9 +68,9 @@ export default function Profile() {
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>
         <div className="ProfileHeader2">
-          <span>Game Page</span>
+          <span>{data==0?"Game Page":"गेम पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
         <div className="GameRoot">

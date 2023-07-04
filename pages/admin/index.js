@@ -101,7 +101,7 @@ export default function Home() {
         <div className="ProfileHeader">
           <span>Home Page</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
         <div className="btnContainer">

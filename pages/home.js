@@ -59,9 +59,9 @@ export default function Home() {
           <Switch onChange={handleClick} />
         </div>
         <div className="ProfileHeader">
-          <span>Home Page</span>
+          <span>{data==0?"Home Page":"होम पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
         <div className="btnContainer">

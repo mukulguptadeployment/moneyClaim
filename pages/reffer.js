@@ -84,9 +84,9 @@ export default function Profile() {
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>
         <div className="ProfileHeader2">
-          <span>Refferal Page</span>
+          <span>{data===0?"Refferal Page":"रेफरल पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
         <div className="ShareRoot">

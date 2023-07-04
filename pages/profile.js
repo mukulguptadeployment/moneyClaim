@@ -45,9 +45,9 @@ export default function Profile() {
         </div>
 
         <div className="ProfileHeader2">
-          <span>Profile Page</span>
+          <span>{data==0?"Profile Page":"प्रोफ़ाइल पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
 

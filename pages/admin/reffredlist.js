@@ -48,7 +48,7 @@ const RefferedUsers = () => {
         <div className="ProfileHeader">
           <span>Home Page</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            Logout
+            {data==0?"Logout":"लॉग आउट"}
           </button>
         </div>
         <div className="ProfileHeader" onClick={() => router.push("/admin")}>
