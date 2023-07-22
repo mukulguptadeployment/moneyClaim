@@ -91,7 +91,7 @@ export default function Profile() {
           <span>Change Language / भाषा बदलें</span>
           <Switch onChange={handleClick} />
         </div>
-        <div className="ProfileHeader" onClick={() => router.push(`/game/${data==1?"lan=h":"lan=en"}`)}>
+        <div className="ProfileHeader" onClick={() => router.push(`/game?${data==1?"lan=h":"lan=en"}`)}>
           <span>{`🔙    Back`}</span>
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>
