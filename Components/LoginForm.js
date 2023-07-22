@@ -21,7 +21,7 @@ export default function LoginForm({ formlabels }) {
       Cookies.get("UserInfo") &&
       JSON.parse(Cookies.get("UserInfo")).isAdmin === "true"
         ? router.push("/admin")
-        : router.push("/home");
+        : router.push(`/home?${data==1?"lan=h":"lan=en"}`);
       setLogin(false);
     } else if (response.status == 403) {
       alert("Invalid Username Or Password");

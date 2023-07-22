@@ -16,7 +16,7 @@ const RefferedUsers = () => {
     if (userData && userData.name !== "" && userData.isAdmin) {
       setUser(userData);
     } else {
-      router.push("/");
+      router.push(`/?${data==1?"lan=h":"lan=en"}`);
     }
     router.query.ref && showuser();
     showgameinfo();
@@ -30,10 +30,13 @@ const RefferedUsers = () => {
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
-    router.push("/");
+    router.push(`/?${data==1?"lan=h":"lan=en"}`);
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
+    const new_url=new URL(window.location.href);
+    const search_params=new_url.searchParams;
+    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
   };
   const showuser = async () => {
     const body = {

@@ -19,7 +19,7 @@ export default function Home() {
         router.push("/home");
       }
     } else {
-      router.push("/");
+      router.push(`/?${data==1?"lan=h":"lan=en"}`);
     }
   }, [login, router]);
 
@@ -29,7 +29,7 @@ export default function Home() {
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push("/");
+    router.push(`/?${data==1?"lan=h":"lan=en"}`);
   };
   const AskNumber = async () => {
     const months = [

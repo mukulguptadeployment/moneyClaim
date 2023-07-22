@@ -12,6 +12,10 @@ export default function Profile() {
   const [selectedNum, setSelectNum] = useState([]);
   const router = useRouter();
   useEffect(() => {
+    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
+    setData(window.location.href.includes("lan=h") ? 1 : 0)
+  }, []);
+  useEffect(() => {
     let userData = Cookies.get("UserInfo");
     userData = userData && JSON.parse(userData);
     if (userData && userData.name !== "") {
@@ -19,7 +23,7 @@ export default function Profile() {
       setUser(userData);
       setLogin(true);
     } else {
-      router.push("/");
+      router.push(`/?${data==1?"lan=h":"lan=en"}`);
     }
   }, [login, router]);
   useEffect(() => {
@@ -31,11 +35,14 @@ export default function Profile() {
 
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
+    const new_url=new URL(window.location.href);
+    const search_params=new_url.searchParams;
+    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push("/");
+    router.push(`/?${data==1?"lan=h":"lan=en"}`);
   };
   const handleNumberClick = (e) => {
     const NumberClicked = e.target.getAttribute("a-key");
@@ -54,7 +61,7 @@ export default function Profile() {
   const existElem = (i) => selectedNum.includes(i.toString());
   const handlePlaceBet = () => {
     Cookies.set("Numbers", JSON.stringify(selectedNum));
-    router.push("/betmoney");
+    router.push(`/betmoney/${data==1?"lan=h":"lan=en"}`);
   };
   return (
     login && (
@@ -63,7 +70,7 @@ export default function Profile() {
           <span>Change Language / भाषा बदलें</span>
           <Switch onChange={handleClick} />
         </div>
-        <div className="ProfileHeader" onClick={() => router.push("/home")}>
+        <div className="ProfileHeader" onClick={() => router.push(`/home?${data==1?"lan=h":"lan=en"}`)}>
           <span>{`🔙    Back`}</span>
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>

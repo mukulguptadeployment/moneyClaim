@@ -23,7 +23,7 @@ export default function Users() {
       setUser(userData);
       setLogin(true);
     } else {
-      router.push("/");
+      router.push(`/?${data==1?"lan=h":"lan=en"}`);
     }
     ShowUsers();
   }, [login, router]);
@@ -45,7 +45,7 @@ export default function Users() {
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push("/");
+    router.push(`/?${data==1?"lan=h":"lan=en"}`);
   };
   const ShowUserInfo = (e) => {
     console.log("User Info Index", e);

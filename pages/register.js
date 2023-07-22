@@ -17,7 +17,14 @@ const Home = () => {
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
+    const new_url=new URL(window.location.href);
+    const search_params=new_url.searchParams;
+    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
   };
+  useEffect(() => {
+    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
+    setData(window.location.href.includes("lan=h") ? 1 : 0)
+  }, []);
   return (
     <main>
       <Layout>

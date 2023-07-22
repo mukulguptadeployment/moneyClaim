@@ -15,14 +15,14 @@ const RefferedUsers = () => {
     if (userData && userData.name !== "" && userData.isAdmin) {
       setUser(userData);
     } else {
-      router.push("/");
+      router.push(`/?${data==1?"lan=h":"lan=en"}`);
     }
     router.query.ref && showuser();
     console.log(router.query);
   }, []);
   const handleLogout = () => {
     Cookies.remove("UserInfo");
-    router.push("/");
+    router.push(`/?${data==1?"lan=h":"lan=en"}`);
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
