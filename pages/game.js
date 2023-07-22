@@ -61,7 +61,7 @@ export default function Profile() {
   const existElem = (i) => selectedNum.includes(i.toString());
   const handlePlaceBet = () => {
     Cookies.set("Numbers", JSON.stringify(selectedNum));
-    router.push(`/betmoney/${data==1?"lan=h":"lan=en"}`);
+    router.push(`/betmoney?${data==1?"lan=h":"lan=en"}`);
   };
   return (
     login && (
