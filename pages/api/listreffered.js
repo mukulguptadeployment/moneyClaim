@@ -19,10 +19,10 @@ export default async function handler(req, res) {
     req.cookies.UserInfo && JSON.parse(req.cookies.UserInfo).isAdmin;
   if (isAdmin === "true") {
     const data = req.body && JSON.parse(req.body);
-    console.log("Body Data",data)
+    console.log("Body Data", data);
     const userMail = data
       ? {
-        refferedBy: data.reffer,
+          refferedBy: data.reffer,
         }
       : {};
     const existUser = await Users.find(userMail);

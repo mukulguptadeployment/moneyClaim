@@ -11,8 +11,11 @@ export default function Home() {
   const [luckyNum, setLuckyNum] = useState("..");
   const router = useRouter();
   useEffect(() => {
-    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
-    setData(window.location.href.includes("lan=h") ? 1 : 0)
+    console.info(
+      "test Location",
+      window.location.href.includes("lan=h") ? "hindi" : "english"
+    );
+    setData(window.location.href.includes("lan=h") ? 1 : 0);
   }, []);
   useEffect(() => {
     let userData = Cookies.get("UserInfo");
@@ -21,20 +24,20 @@ export default function Home() {
       console.log(userData);
       setLogin(true);
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
   }, [login, router]);
 
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
-    const new_url=new URL(window.location.href);
-    const search_params=new_url.searchParams;
-    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
+    const new_url = new URL(window.location.href);
+    const search_params = new_url.searchParams;
+    search_params.set("lan", ` ${data == 0 ? "en" : "h"} `);
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   const handleComplaint = () => {
     const msg = window.prompt("Raise a Complaint ?");
@@ -66,9 +69,9 @@ export default function Home() {
           <Switch onChange={handleClick} />
         </div>
         <div className="ProfileHeader">
-          <span>{data==0?"Home Page":"होम पेज"}</span>
+          <span>{data == 0 ? "Home Page" : "होम पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            {data==0?"Logout":"लॉग आउट"}
+            {data == 0 ? "Logout" : "लॉग आउट"}
           </button>
         </div>
         <div className="btnContainer">
@@ -80,13 +83,28 @@ export default function Home() {
           <div className="LuckyNumber">
             <span className="LotteryNum">{luckyNum.number}</span>
           </div>
-          <div className="Clickbtn" onClick={() => router.push(`/profile?${data==1?"lan=h":"lan=en"}`)}>
+          <div
+            className="Clickbtn"
+            onClick={() =>
+              router.push(`/profile?${data == 1 ? "lan=h" : "lan=en"}`)
+            }
+          >
             {Data.profile[`${data === 0 ? "english" : "hindi"}`]}
           </div>
-          <div className="Clickbtn" onClick={() => router.push(`/game?${data==1?"lan=h":"lan=en"}`)}>
+          <div
+            className="Clickbtn"
+            onClick={() =>
+              router.push(`/game?${data == 1 ? "lan=h" : "lan=en"}`)
+            }
+          >
             {Data.startplaying[`${data === 0 ? "english" : "hindi"}`]}
           </div>
-          <div className="Clickbtn" onClick={() => router.push(`/reffer?${data==1?"lan=h":"lan=en"}`)}>
+          <div
+            className="Clickbtn"
+            onClick={() =>
+              router.push(`/reffer?${data == 1 ? "lan=h" : "lan=en"}`)
+            }
+          >
             {Data.upcoming[`${data === 0 ? "english" : "hindi"}`]}
           </div>
           <div className="Clickbtn" onClick={handleComplaint}>

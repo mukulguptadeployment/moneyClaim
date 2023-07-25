@@ -22,7 +22,7 @@ export default function Users() {
       setUser(userData);
       setLogin(true);
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
     ShowUsers();
   }, [login, router]);
@@ -31,23 +31,21 @@ export default function Users() {
     userModalData !== "" && setOpen(true);
   }, [userModalData]);
   const ShowUsers = async () => {
-    const request = await fetch(
-      `/api/shownumber`
-    );
+    const request = await fetch(`/api/shownumber`);
     console.log("Response", request);
     const data = await request.json();
     setUserInfoData(data);
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
-    const new_url=new URL(window.location.href);
-    const search_params=new_url.searchParams;
-    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
+    const new_url = new URL(window.location.href);
+    const search_params = new_url.searchParams;
+    search_params.set("lan", ` ${data == 0 ? "en" : "h"} `);
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   const ShowUserInfo = (e) => {
     console.log("User Info Index", e);
@@ -63,7 +61,7 @@ export default function Users() {
         <div className="ProfileHeader">
           <span>Home Page</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            {data==0?"Logout":"लॉग आउट"}
+            {data == 0 ? "Logout" : "लॉग आउट"}
           </button>
         </div>
         <div className="ProfileHeader" onClick={() => router.push("/admin")}>

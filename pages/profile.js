@@ -13,8 +13,11 @@ export default function Profile() {
   const [user, setUser] = useState("");
   const router = useRouter();
   useEffect(() => {
-    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
-    setData(window.location.href.includes("lan=h") ? 1 : 0)
+    console.info(
+      "test Location",
+      window.location.href.includes("lan=h") ? "hindi" : "english"
+    );
+    setData(window.location.href.includes("lan=h") ? 1 : 0);
   }, []);
   useEffect(() => {
     let userData = Cookies.get("UserInfo");
@@ -24,20 +27,20 @@ export default function Profile() {
       setUser(userData);
       setLogin(true);
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
   }, [login, router]);
 
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
-    const new_url=new URL(window.location.href);
-    const search_params=new_url.searchParams;
-    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
+    const new_url = new URL(window.location.href);
+    const search_params = new_url.searchParams;
+    search_params.set("lan", ` ${data == 0 ? "en" : "h"} `);
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   return (
     login && (
@@ -46,15 +49,18 @@ export default function Profile() {
           <span>Change Language / भाषा बदलें</span>
           <Switch onChange={handleClick} />
         </div>
-        <div className="ProfileHeader" onClick={() => router.push(`/home?${data==1?"lan=h":"lan=en"}`)}>
+        <div
+          className="ProfileHeader"
+          onClick={() => router.push(`/home?${data == 1 ? "lan=h" : "lan=en"}`)}
+        >
           <span>{`🔙    Back`}</span>
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>
 
         <div className="ProfileHeader2">
-          <span>{data==0?"Profile Page":"प्रोफ़ाइल पेज"}</span>
+          <span>{data == 0 ? "Profile Page" : "प्रोफ़ाइल पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            {data==0?"Logout":"लॉग आउट"}
+            {data == 0 ? "Logout" : "लॉग आउट"}
           </button>
         </div>
 

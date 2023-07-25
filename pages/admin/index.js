@@ -19,7 +19,7 @@ export default function Home() {
         router.push("/home");
       }
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
   }, [login, router]);
 
@@ -29,7 +29,7 @@ export default function Home() {
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   const AskNumber = async () => {
     const months = [
@@ -75,12 +75,12 @@ export default function Home() {
   const showNumber = async () => {
     router.push("/admin/winnumber");
   };
-  const showGame=()=>{
-    router.push("/admin/gameinfo")
-  }
-  const showNumberInfo=()=>{
-    router.push("/admin/numbersinfo")
-  }
+  const showGame = () => {
+    router.push("/admin/gameinfo");
+  };
+  const showNumberInfo = () => {
+    router.push("/admin/numbersinfo");
+  };
   const setPaytm = async () => {
     var number = prompt("Enter Paytm Number");
     const request = await fetch("/api/setpaytmnumber", {
@@ -88,9 +88,9 @@ export default function Home() {
       body: number,
     });
   };
-  const showComplaints=()=>{
-    router.push("/admin/complaintinfo")
-  }
+  const showComplaints = () => {
+    router.push("/admin/complaintinfo");
+  };
   return (
     login && (
       <Layout>
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="ProfileHeader">
           <span>Home Page</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            {data==0?"Logout":"लॉग आउट"}
+            {data == 0 ? "Logout" : "लॉग आउट"}
           </button>
         </div>
         <div className="btnContainer">

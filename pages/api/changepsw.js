@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     User.refferalCode = data.refferalCode.toLowerCase() || User.refferalCode;
     User.password = JSON.parse(req.body).password;
     User.phoneNumber = data.phoneNumber || User.phoneNumber;
-    
+
     const newUser = await User.save();
     console.log("New User Data", newUser);
 

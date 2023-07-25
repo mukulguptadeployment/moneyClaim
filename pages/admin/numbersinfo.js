@@ -17,7 +17,7 @@ const RefferedUsers = () => {
     if (userData && userData.name !== "" && userData.isAdmin) {
       setUser(userData);
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
     router.query.ref && showuser();
     showgameinfo();
@@ -32,7 +32,7 @@ const RefferedUsers = () => {
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
@@ -52,7 +52,7 @@ const RefferedUsers = () => {
     const Num = prompt("Enter Number to show info");
     console.log("Number selected", Number);
     const arr1 = [];
-    
+
     for (var i = 0; i < game.length; i++) {
       arr1.push(game[i].game);
     }
@@ -71,7 +71,7 @@ const RefferedUsers = () => {
       <div className="ProfileHeader">
         <span>Home Page</span>
         <button className="logoutBtn" onClick={handleLogout}>
-          {data==0?"Logout":"लॉग आउट"}
+          {data == 0 ? "Logout" : "लॉग आउट"}
         </button>
       </div>
       <div className="ProfileHeader" onClick={() => router.push("/admin")}>
@@ -82,7 +82,7 @@ const RefferedUsers = () => {
       <div onClick={showInfo} className={"ButtonInfo"}>
         Enter Number to Filter
       </div>
-      <div>{`Total Amount placed on Number ${ 
+      <div>{`Total Amount placed on Number ${
         numbergame.length > 0 ? numbergame[0].number : "0"
       } is Rs. ${
         numbergame.length > 0

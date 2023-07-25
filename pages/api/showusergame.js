@@ -15,12 +15,11 @@ export default async function handler(req, res) {
         console.log(error.reason);
       });
   }
-  const isAdmin =
-    req.cookies.UserInfo && JSON.parse(req.cookies.UserInfo);
-    console.log(isAdmin)
+  const isAdmin = req.cookies.UserInfo && JSON.parse(req.cookies.UserInfo);
+  console.log(isAdmin);
   if (isAdmin) {
     const Games = await GameModal.find({
-        user:isAdmin._id
+      user: isAdmin._id,
     });
     if (Games) {
       res.status(200).json(Games);

@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       password: data.password,
       isAdmin: false,
       phoneNumber: data.contactnumber,
-      refferedBy:data.refferCode,
+      refferedBy: data.refferCode,
     };
 
     var val = Math.floor(1000 + Math.random() * 9000);
@@ -39,31 +39,30 @@ export default async function handler(req, res) {
     }
     console.log("New User Data", userinfo);
     const user = new Users(userinfo);
-try{
-  const newUser = await user.save();
-  res.setHeader(
-    "Set-Cookie",
-    cookie.serialize("UserInfo", JSON.stringify(newUser), {
-      httpOnly: false,
-      path: "/",
-    })
-  );
-  if (data.password !== data.confirmpassword) {
-    res.status(403).json({
-      message: "Password and confirm password should be same",
-    });
-  } else {
-    res.status(200).json({
-      message: "Account Created Sucessfully Please Login to Continue",
-      user,
-    });
-  }
-}catch(err){
-  res.status(409).json({
-    message: "Account with this email already exist try with new email",
-  });
-}
-    
+    try {
+      const newUser = await user.save();
+      res.setHeader(
+        "Set-Cookie",
+        cookie.serialize("UserInfo", JSON.stringify(newUser), {
+          httpOnly: false,
+          path: "/",
+        })
+      );
+      if (data.password !== data.confirmpassword) {
+        res.status(403).json({
+          message: "Password and confirm password should be same",
+        });
+      } else {
+        res.status(200).json({
+          message: "Account Created Sucessfully Please Login to Continue",
+          user,
+        });
+      }
+    } catch (err) {
+      res.status(409).json({
+        message: "Account with this email already exist try with new email",
+      });
+    }
   } else {
     res.status(500).send({ E01: "Cookie Not Found" });
   }

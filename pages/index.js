@@ -10,13 +10,18 @@ const Home = () => {
   const [data, setData] = useState(0);
   const router = useRouter();
   useEffect(() => {
-    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
-    setData(window.location.href.includes("lan=h") ? 1 : 0)
+    console.info(
+      "test Location",
+      window.location.href.includes("lan=h") ? "hindi" : "english"
+    );
+    setData(window.location.href.includes("lan=h") ? 1 : 0);
   }, []);
   useEffect(() => {
     const user = Cookies.get("UserInfo");
     if (user) {
-      user.isAdmin ? router.push("/admin") : router.push(`/home?${data==1?"lan=h":"lan=en"}`);
+      user.isAdmin
+        ? router.push("/admin")
+        : router.push(`/home?${data == 1 ? "lan=h" : "lan=en"}`);
     }
   }, [router]);
   const labels = {
@@ -25,9 +30,9 @@ const Home = () => {
   };
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
-    const new_url=new URL(window.location.href);
-    const search_params=new_url.searchParams;
-    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
+    const new_url = new URL(window.location.href);
+    const search_params = new_url.searchParams;
+    search_params.set("lan", ` ${data == 0 ? "en" : "h"} `);
   };
   return (
     <main>

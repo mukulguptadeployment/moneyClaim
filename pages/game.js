@@ -12,8 +12,11 @@ export default function Profile() {
   const [selectedNum, setSelectNum] = useState([]);
   const router = useRouter();
   useEffect(() => {
-    console.info("test Location",window.location.href.includes("lan=h") ? "hindi" : "english");
-    setData(window.location.href.includes("lan=h") ? 1 : 0)
+    console.info(
+      "test Location",
+      window.location.href.includes("lan=h") ? "hindi" : "english"
+    );
+    setData(window.location.href.includes("lan=h") ? 1 : 0);
   }, []);
   useEffect(() => {
     let userData = Cookies.get("UserInfo");
@@ -23,7 +26,7 @@ export default function Profile() {
       setUser(userData);
       setLogin(true);
     } else {
-      router.push(`/?${data==1?"lan=h":"lan=en"}`);
+      router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
     }
   }, [login, router]);
   useEffect(() => {
@@ -35,14 +38,14 @@ export default function Profile() {
 
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
-    const new_url=new URL(window.location.href);
-    const search_params=new_url.searchParams;
-    search_params.set('lan', ` ${ data==0 ? "en" : "h" } `);
+    const new_url = new URL(window.location.href);
+    const search_params = new_url.searchParams;
+    search_params.set("lan", ` ${data == 0 ? "en" : "h"} `);
   };
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     setLogin(false);
-    router.push(`/?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   const handleNumberClick = (e) => {
     const NumberClicked = e.target.getAttribute("a-key");
@@ -61,7 +64,7 @@ export default function Profile() {
   const existElem = (i) => selectedNum.includes(i.toString());
   const handlePlaceBet = () => {
     Cookies.set("Numbers", JSON.stringify(selectedNum));
-    router.push(`/betmoney?${data==1?"lan=h":"lan=en"}`);
+    router.push(`/betmoney?${data == 1 ? "lan=h" : "lan=en"}`);
   };
   return (
     login && (
@@ -70,14 +73,17 @@ export default function Profile() {
           <span>Change Language / भाषा बदलें</span>
           <Switch onChange={handleClick} />
         </div>
-        <div className="ProfileHeader" onClick={() => router.push(`/home?${data==1?"lan=h":"lan=en"}`)}>
+        <div
+          className="ProfileHeader"
+          onClick={() => router.push(`/home?${data == 1 ? "lan=h" : "lan=en"}`)}
+        >
           <span>{`🔙    Back`}</span>
           <span>{`Hello ${user.name} `}&ensp;</span>
         </div>
         <div className="ProfileHeader2">
-          <span>{data==0?"Game Page":"गेम पेज"}</span>
+          <span>{data == 0 ? "Game Page" : "गेम पेज"}</span>
           <button className="logoutBtn" onClick={handleLogout}>
-            {data==0?"Logout":"लॉग आउट"}
+            {data == 0 ? "Logout" : "लॉग आउट"}
           </button>
         </div>
         <div className="GameRoot">
@@ -101,21 +107,25 @@ export default function Profile() {
         </div>
         <input
           type={"submit"}
-          value={data==1?"दांव लगाना जारी रखें" :"Continue to place Bet"}
+          value={data == 1 ? "दांव लगाना जारी रखें" : "Continue to place Bet"}
           className="PlaceBetBtn"
           onClick={handlePlaceBet}
         />
         <div className="Terms_Conditions">
           <span className="TnCtext">
-            {data==1?`* जीत की राशि पेटीएम के माध्यम से परिणाम घोषित होने के बाद जमा की जाएगी।`:
-              `*Winning amount will be credited after the declaration of results via Paytm.`
-            }
+            {data == 1
+              ? `* जीत की राशि पेटीएम के माध्यम से परिणाम घोषित होने के बाद जमा की जाएगी।`
+              : `*Winning amount will be credited after the declaration of results via Paytm.`}
           </span>
           <span className="TnCtext">
-            {data==1?"*सुनिश्चित करें कि आपका नंबर पेटीएम पर पंजीकृत है":"*Make sure your Number is registered on Paytm."}
+            {data == 1
+              ? "*सुनिश्चित करें कि आपका नंबर पेटीएम पर पंजीकृत है"
+              : "*Make sure your Number is registered on Paytm."}
           </span>
           <span className="TnCtext">
-            {data==1?"* रिजल्ट रोजाना रात 10 बजे घोषित किया जाएगा":"*Result will be declared at 10:00 pm every everyday."}
+            {data == 1
+              ? "* रिजल्ट रोजाना रात 10 बजे घोषित किया जाएगा"
+              : "*Result will be declared at 10:00 pm every everyday."}
           </span>
         </div>
 

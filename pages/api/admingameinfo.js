@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     req.cookies.UserInfo && JSON.parse(req.cookies.UserInfo).isAdmin;
   if (isAdmin === "true") {
     const Games = await GameModal.find({});
-    const finalinfo=[];
+    const finalinfo = [];
     for (let i = 1; i <= Games.length; i++) {
       let gameinfo = Games.filter((x) => x.game.filter((y) => (y.number = i)));
       const arrayData = gameinfo.map((item) => item.game);
@@ -32,13 +32,12 @@ export default async function handler(req, res) {
         }
         total += parseInt(sum);
       }
-      if(arrayData.length>0){
+      if (arrayData.length > 0) {
         finalinfo.push({
-            number:arrayData[i],
-            amount:total
-          })
+          number: arrayData[i],
+          amount: total,
+        });
       }
-      
     }
 
     if (Games) {
