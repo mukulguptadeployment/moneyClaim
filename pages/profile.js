@@ -42,6 +42,9 @@ export default function Profile() {
     setLogin(false);
     router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
+  const handleProfileView=()=>{
+    router.push(`/winrecord/?${data == 1 ? "lan=h" : "lan=en"}`)
+  }
   return (
     login && (
       <Layout>
@@ -65,7 +68,7 @@ export default function Profile() {
         </div>
 
         <div className="CollapseRootparent">
-          <div className="CollapseRoot Clickbtn color-match">
+          <div className="CollapseRoot Clickbtn color-match" onClick={handleProfileView}>
             {Data.winning[`${data === 0 ? "english" : "hindi"}`]}
           </div>
           <div className="CollapseRoot Clickbtn color-match">
