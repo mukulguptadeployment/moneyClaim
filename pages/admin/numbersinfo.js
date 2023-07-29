@@ -10,6 +10,7 @@ const RefferedUsers = () => {
   const [user, setUser] = useState({});
   const [game, setGameinfo] = useState([]);
   const [numbergame, setNumberGame] = useState([]);
+  const [bestTotal,setBets]=useState([]);
 
   useEffect(() => {
     let userData = Cookies.get("UserInfo");
@@ -38,17 +39,28 @@ const RefferedUsers = () => {
     for (var i = 0; i < response.length; i++) {
       arr1.push(response[i].game);
     }
+
     const newgame = [].concat(...arr1);
     const arraayData = [];
 
-    for (var i = 1; i < newgame.length; i++) {
-      const arrData = newgame.filter((x) => x.number == 2);
+    for (var i = 1; i < 100; i++) {
+      const arrData = newgame.filter((x) => x.number == i);
+
       const amountarr = arrData
         .map((x) => x.amount)
         .reduce((partialSum, a) => parseInt(partialSum) + parseInt(a), 0);
-    }
 
-    console.info("Check Info Data :", newgame);
+      arraayData.push({
+        number: arrData.length > 0 && arrData[0].number,
+        total: amountarr,
+      });
+    }
+    // Contains info of all numbers with total amount placed as bet
+    const finalarr=arraayData.filter(x=>x.number!=false)
+
+    setBets(finalarr)
+
+    console.info("Check Info Data :", finalarr);
   };
 
   const showgameinfo = async () => {
@@ -136,6 +148,16 @@ const RefferedUsers = () => {
               {/* {console.log("Element after sorting",x)} */}
             </>
           ))}
+          {
+            bestTotal.length > 0 && bestTotal.map((x,i)=>(
+              <>
+              <div className="RefCol">{x.number}</div>
+              <div className="RefCol">Rs. {x.total}</div>
+              <div className="RefCol">{"element" + i}</div>
+              {/* {console.log("Element after sorting",x)} */}
+            </>
+            ))
+          }
       </div>
     </Layout>
   );
