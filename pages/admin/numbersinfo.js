@@ -23,20 +23,50 @@ const RefferedUsers = () => {
     showgameinfo();
     console.log(router.query);
   }, []);
+
+  // show max and min bets
+  useEffect(() => {
+    CheckMaxMin();
+  }, []);
+
+  // max and min number check function
+  const CheckMaxMin = async () => {
+    const req = await fetch("/api/showgame");
+    const response = await req.json();
+
+    const arr1 = [];
+    for (var i = 0; i < response.length; i++) {
+      arr1.push(response[i].game);
+    }
+    const newgame = [].concat(...arr1);
+    const arraayData = [];
+
+    for (var i = 1; i < newgame.length; i++) {
+      const arrData = newgame.filter((x) => x.number == 2);
+      const amountarr = arrData
+        .map((x) => x.amount)
+        .reduce((partialSum, a) => parseInt(partialSum) + parseInt(a), 0);
+    }
+
+    console.info("Check Info Data :", newgame);
+  };
+
   const showgameinfo = async () => {
     const req = await fetch("/api/showgame");
     const response = await req.json();
-    const tempArr = response;
     console.log("Data Response from api", response);
     setGameinfo(response);
   };
+
   const handleLogout = () => {
     Cookies.remove("UserInfo");
     router.push(`/?${data == 1 ? "lan=h" : "lan=en"}`);
   };
+
   const handleClick = () => {
     setData(data === 0 ? 1 : 0);
   };
+
   const showuser = async () => {
     const body = {
       reffer: router.query.ref,
@@ -48,6 +78,7 @@ const RefferedUsers = () => {
     const data = await request.json();
     setUsers(data);
   };
+
   const showInfo = () => {
     const Num = prompt("Enter Number to show info");
     console.log("Number selected", Number);
@@ -62,6 +93,7 @@ const RefferedUsers = () => {
     console.log("Data", Filtered);
     setNumberGame(Filtered);
   };
+
   return (
     <Layout>
       <div className="LoginBtnContainer">
