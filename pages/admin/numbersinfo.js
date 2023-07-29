@@ -10,7 +10,9 @@ const RefferedUsers = () => {
   const [user, setUser] = useState({});
   const [game, setGameinfo] = useState([]);
   const [numbergame, setNumberGame] = useState([]);
-  const [bestTotal,setBets]=useState([]);
+  const [bestTotal, setBets] = useState([]);
+  const [maxbet,setMaxbet]=useState({})
+  const [minBet,setMinbet]=useState({})
 
   useEffect(() => {
     let userData = Cookies.get("UserInfo");
@@ -56,11 +58,22 @@ const RefferedUsers = () => {
       });
     }
     // Contains info of all numbers with total amount placed as bet
-    const finalarr=arraayData.filter(x=>x.number!=false)
+    const finalarr = arraayData.filter((x) => x.number != false);
 
-    setBets(finalarr)
+    setBets(finalarr);
+    const arr = [];
+    for (var i = 0; i < finalarr.length; i++) {
+      arr.push(finalarr[i].total);
+    }
+    const maxNum = Math.max(...arr);
+    const minNum = Math.min(...arr)
 
-    console.info("Check Info Data :", finalarr);
+    const numinfo = finalarr.filter((x) => x.total == maxNum);
+    const minnuminfo = finalarr.filter((x) => x.total == minNum);
+
+    console.info("CMax Betsss :", numinfo);
+    setMaxbet(numinfo[0]);
+    setMinbet(minnuminfo[0])
   };
 
   const showgameinfo = async () => {
@@ -148,16 +161,18 @@ const RefferedUsers = () => {
               {/* {console.log("Element after sorting",x)} */}
             </>
           ))}
-          {
-            bestTotal.length > 0 && bestTotal.map((x,i)=>(
-              <>
+        {numbergame.length <= 0 &&
+          bestTotal.length > 0 &&
+          bestTotal.map((x, i) => (
+            <>
               <div className="RefCol">{x.number}</div>
               <div className="RefCol">Rs. {x.total}</div>
               <div className="RefCol">{"element" + i}</div>
               {/* {console.log("Element after sorting",x)} */}
             </>
-            ))
-          }
+          ))}
+          <div className="">Maximum Amount Placed on Number {maxbet.number} is Rs. {maxbet.total}</div>
+          <div className="">Minimum Amount Placed on Number {minBet.number} is Rs. {minBet.total}</div>
       </div>
     </Layout>
   );
