@@ -5,6 +5,7 @@ import { Switch, Collapse, Modal } from "antd";
 import Layout from "../Components/Layout";
 import Data from "../JSON/home.json";
 import TextData from "../JSON/betMoney.json";
+import Image from "next/image";
 const { Panel } = Collapse;
 
 export default function Profile() {
@@ -202,6 +203,7 @@ const PaymentPopUp = ({ amount, open, close, data, router }) => {
   useEffect(() => {
     paytmNumberfetch();
   });
+
   return (
     <>
       <Modal
@@ -216,6 +218,10 @@ const PaymentPopUp = ({ amount, open, close, data, router }) => {
         </div>
 
         <div className="PayNumber">{num}</div>
+        <h1>OR</h1>
+        <div className="QrPaymentCode">
+          <Image src="/qucode.jpg" width={250} height={300} />
+        </div>
         <div className="extraInfoPayment">
           {TextData.extraInfo[`${data === 0 ? "english" : "hindi"}`]}
         </div>
