@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
   let userinfo = {
     name: "Admin",
-    email: "admin@moneyclaim.com",
+    email: "admin@moneyclaim.in",
     password: "1234",
     isAdmin: true,
     phoneNumber: "9876543210",
