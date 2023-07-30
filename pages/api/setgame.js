@@ -22,8 +22,8 @@ export default async function handler(req, res) {
     console.log("Request body --> ", data);
     const game = new GameModal({
       user: isLoggedin._id,
-      game: data,
-      date: new Date(),
+      game: data.game,
+      date: data.date,
     });
     const newgame = await game.save();
     res.status(200).send({ msg: "Sucess", Game: newgame });

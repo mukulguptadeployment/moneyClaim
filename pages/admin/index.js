@@ -91,6 +91,9 @@ export default function Home() {
   const showComplaints = () => {
     router.push("/admin/complaintinfo");
   };
+  const showWinners = () => {
+    router.push("/admin/winners");
+  };
   return (
     login && (
       <Layout>
@@ -125,6 +128,9 @@ export default function Home() {
           </div>
           <div className="Clickbtn" onClick={showComplaints}>
             {Data.title7[`${data === 0 ? "english" : "hindi"}`]}
+          </div>
+          <div className="Clickbtn" onClick={showWinners}>
+            {Data.title8[`${data === 0 ? "english" : "hindi"}`]}
           </div>
         </div>
         <div className="InfoContest">

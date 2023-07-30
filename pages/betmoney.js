@@ -180,9 +180,10 @@ const PaymentPopUp = ({ amount, open, close, data, router }) => {
         "amount"
       )} and Game Set Sucessfull with transaction id ${trans_id}`
     );
+    const dateData = new Date();
     const request = await fetch("/api/setgame", {
       method: "POST",
-      body: JSON.stringify(amount),
+      body: JSON.stringify({ game: amount, date: dateData.toString() }),
     });
     const response = await request.json();
     console.log("response", response);

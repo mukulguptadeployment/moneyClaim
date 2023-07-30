@@ -13,7 +13,7 @@ const Game = new mongoose.Schema({
     },
   ],
 
-  date: { type: Date, required: true },
+  date: { type: String, required: true },
 });
 
 const GameModal = mongoose.models.Game || mongoose.model("Game", Game);
